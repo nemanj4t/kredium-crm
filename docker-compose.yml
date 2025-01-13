@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+    kredium-crm:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: kredium-crm
+        ports:
+            - "8000:8000"
+        volumes:
+            - .:/var/www/html
+        networks:
+            - kredium
+        depends_on:
+            - mysql
+
+    mysql:
+        image: mysql:8.0
+        container_name: mysql
+        restart: unless-stopped
+        ports:
+            - "3307:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: 123
+            MYSQL_DATABASE: kredium_crm
+            MYSQL_USER: kredium
+            MYSQL_PASSWORD: 123
+        volumes:
+            - db_data:/var/lib/mysql
+        networks:
+            - kredium
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: phpmyadmin
+        restart: unless-stopped
+        ports:
+            - "8080:80"
+        environment:
+            PMA_HOST: mysql
+            PMA_PORT: 3306
+        networks:
+            - kredium
+
+networks:
+    kredium:
+
+volumes:
+    db_data:
