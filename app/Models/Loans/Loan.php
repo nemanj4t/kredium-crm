@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Loan extends Model
 {
-    protected $fillable = ['client_id', 'advertiser_id'];
+    protected $fillable = ['type', 'client_id', 'adviser_id'];
 
     public function client(): BelongsTo
     {

@@ -63,7 +63,7 @@
                                     </td>
                                     <td class="px-6 py-4">
                                         <a
-                                            href="{{ route('dashboard') }}"
+                                            href="{{ route('clients.edit', ['client' => $client->id]) }}"
                                             class="hover:bg-gray-100 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                                         >
                                             Edit

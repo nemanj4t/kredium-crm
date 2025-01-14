@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Clients - Create
+            Clients - Edit
         </h2>
     </x-slot>
 
@@ -18,7 +18,17 @@
                 </div>
                 <div class="p-4 m-4 shadow-sm sm:rounded-lg">
                     <div class="max-w-xl">
-                        @include('clients.partials.client-basic-info-form', ['edit' => false])
+                        @include('clients.partials.client-basic-info-form', ['edit' => true])
+                    </div>
+                </div>
+                <div class="p-4 m-4 shadow-sm sm:rounded-lg">
+                    <div class="max-w-xl">
+                        @include('clients.partials.client-cash-loan-form')
+                    </div>
+                </div>
+                <div class="p-4 m-4 shadow-sm sm:rounded-lg">
+                    <div class="max-w-xl">
+                        @include('clients.partials.client-home-loan-form')
                     </div>
                 </div>
             </div>
