@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Infrastructure\QueryBuilder\ClientQuery;
+use App\ReadModels\ClientQueryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->singleton(ClientQueryInterface::class, ClientQuery::class);
     }
 
     /**

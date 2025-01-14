@@ -21,8 +21,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/', [ClientController::class, 'index'])->name('clients.index');
         Route::get('/create', [ClientController::class, 'create'])->name('clients.create');
         Route::post('/', [ClientController::class, 'store'])->name('clients.store');
-        Route::get('/edit/{client}', [ClientController::class, 'edit'])->name('clients.edit');
+        Route::get('/{client}/edit', [ClientController::class, 'edit'])->name('clients.edit');
         Route::put('/{client}', [ClientController::class, 'update'])->name('clients.update');
+        Route::delete('/{client}', [ClientController::class, 'destroy'])->name('clients.destroy');
         Route::post('/{client}/cash-loan', [ClientController::class, 'applyForCashLoan'])->name('clients.cash-loan');
         Route::post('/{client}/home-loan', [ClientController::class, 'applyForHomeLoan'])->name('clients.home-loan');
     });

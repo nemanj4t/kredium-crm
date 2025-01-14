@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests\Client;
 
-use App\Http\Requests\Client\DTO\CreateClientParams;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Validator;
@@ -39,17 +38,5 @@ class CreateClientRequest extends FormRequest
                 );
             }
         });
-    }
-
-    public function params(): CreateClientParams
-    {
-        $params = $this->validated();
-
-        return new CreateClientParams(
-            $params['first_name'],
-            $params['last_name'],
-            $params['email'] ?? null,
-            $params['phone'] ?? null,
-        );
     }
 }

@@ -8,6 +8,7 @@ use App\Http\Requests\Client\CreateClientRequest;
 use App\Http\Requests\Client\HomeLoanRequest;
 use App\Models\Client;
 use App\Models\Loans\Loan;
+use App\ReadModels\ClientQueryInterface;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Log\Logger;
@@ -18,13 +19,14 @@ use Illuminate\View\View;
 class ClientController extends Controller
 {
     public function __construct(
-        private readonly Logger $logger
+        private readonly Logger $logger,
+        private readonly ClientQueryInterface $clientQuery,
     ) {}
 
     public function index(): View
     {
         return view('clients.index', [
-            'clients' => Client::all(),
+            'clients' => $this->clientQuery->all(),
         ]);
     }
 
@@ -57,6 +59,20 @@ class ClientController extends Controller
             $client->update($request->validated());
 
             return Redirect::route('clients.index')->with('status', 'client-updated');
+        } catch (Exception $exception) {
+            $this->logger->error($exception);
+
+            return Redirect::route('clients.edit', $client)
+                ->with('error', 'Whoops, something went wrong!');
+        }
+    }
+
+    public function destroy(Client $client): RedirectResponse
+    {
+        try {
+            $client->delete();
+
+            return Redirect::route('clients.index')->with('status', 'client-deleted');
         } catch (Exception $exception) {
             $this->logger->error($exception);
 
