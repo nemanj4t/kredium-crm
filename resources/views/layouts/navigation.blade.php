@@ -14,6 +14,10 @@
                     <x-nav-link :href="route('clients.index')" :active="request()->routeIs('clients.*')">
                         Clients
                     </x-nav-link>
+
+                    <x-nav-link :href="route('reports.index')" :active="request()->routeIs('reports.*')">
+                        Reports
+                    </x-nav-link>
                 </div>
             </div>
 

@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\DTO\Collection;
+namespace App\DTO\Collection;
 
-use App\Http\DTO\ClientWithLoanStatuses;
+use App\DTO\ClientWithLoanStatuses;
 use Iterator;
 
-class ClientsWithLoanStatuses implements Iterator
+class ClientsWithLoanStatuses extends AbstractCollection implements Iterator
 {
     private array $clients = [];
-    private int $index = 0;
 
     public function __construct(ClientWithLoanStatuses ...$clients)
     {
@@ -20,23 +19,8 @@ class ClientsWithLoanStatuses implements Iterator
         return $this->clients[$this->index];
     }
 
-    public function next(): void
-    {
-        $this->index += 1;
-    }
-
-    public function key(): int
-    {
-        return $this->index;
-    }
-
     public function valid(): bool
     {
         return $this->index < count($this->clients);
-    }
-
-    public function rewind(): void
-    {
-        $this->index = 0;
     }
 }

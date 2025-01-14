@@ -2,8 +2,8 @@
 
 namespace App\Infrastructure\QueryBuilder;
 
-use App\Http\DTO\ClientWithLoanStatuses;
-use App\Http\DTO\Collection\ClientsWithLoanStatuses;
+use App\DTO\ClientWithLoanStatuses;
+use App\DTO\Collection\ClientsWithLoanStatuses;
 use App\Http\Enums\LoanTypeEnum;
 use App\ReadModels\ClientQueryInterface;
 use Illuminate\Support\Facades\DB;

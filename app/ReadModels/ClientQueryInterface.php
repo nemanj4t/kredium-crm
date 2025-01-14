@@ -2,7 +2,7 @@
 
 namespace App\ReadModels;
 
-use App\Http\DTO\Collection\ClientsWithLoanStatuses;
+use App\DTO\Collection\ClientsWithLoanStatuses;
 
 interface ClientQueryInterface
 {
