@@ -3,9 +3,10 @@
 namespace App\DTO\Collection;
 
 use App\DTO\Report;
+use App\Helpers\CsvParseable;
 use Iterator;
 
-class Reports extends AbstractCollection implements Iterator
+class Reports extends AbstractCollection implements Iterator, CsvParseable
 {
     private array $reports = [];
 
@@ -22,5 +23,10 @@ class Reports extends AbstractCollection implements Iterator
     public function valid(): bool
     {
         return $this->index < count($this->reports);
+    }
+
+    public function parse(): array
+    {
+        return array_map(fn(Report $report) => $report->parse(), $this->reports);
     }
 }

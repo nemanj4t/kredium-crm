@@ -2,11 +2,11 @@
 
 namespace App\DTO;
 
+use App\Helpers\CsvParseable;
 use App\Http\Enums\LoanTypeEnum;
-use DateTime;
 use stdClass;
 
-class Report
+class Report implements CsvParseable
 {
     private function __construct(
         public string $loanType,
@@ -25,5 +25,10 @@ class Report
         };
 
         return new self($loanType, $value, $object->created_at);
+    }
+
+    public function parse(): array
+    {
+        return [$this->loanType, $this->value, $this->createdAt];
     }
 }

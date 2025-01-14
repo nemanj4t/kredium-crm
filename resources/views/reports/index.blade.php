@@ -10,12 +10,16 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="m-4 p-4">
                     <div class="flex justify-between">
-                        <a
-                            href="#"
-                            class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                        >
-                            Export to csv
-                        </a>
+                        <form method="post" action="{{ route('reports.export') }}">
+                            @csrf
+
+                            <button
+                                type="submit"
+                                class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                            >
+                                Export to csv
+                            </button>
+                        </form>
                     </div>
                 </div>
                 <div class="m-4 p-4">

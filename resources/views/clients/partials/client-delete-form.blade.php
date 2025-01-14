@@ -1,4 +1,4 @@
-<x-modal name="delete-client-{{ $client->id }}" :show="$errors->userDeletion->isNotEmpty()" focusable>
+<x-modal name="delete-client-{{ $client->id }}" focusable>
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <form method="post" action="{{ route('clients.destroy', $client->id) }}" class="p-6">
             @csrf

@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('reports')->group(function () {
         Route::get('/', [ReportController::class, 'index'])->name('reports.index');
+        Route::post('/export', [ReportController::class, 'export'])->name('reports.export');
     });
 });
 
