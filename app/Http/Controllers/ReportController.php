@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Helpers\CsvBuilder;
+use App\Helpers\CSV\CsvBuilder;
 use App\ReadModels\ReportQueryInterface;
 use App\Service\CsvService;
 use DateTime;

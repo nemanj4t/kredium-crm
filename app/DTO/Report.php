@@ -2,7 +2,7 @@
 
 namespace App\DTO;
 
-use App\Helpers\CsvParseable;
+use App\Helpers\CSV\CsvParseable;
 use App\Http\Enums\LoanTypeEnum;
 use stdClass;
 

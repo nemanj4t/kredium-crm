@@ -3,7 +3,7 @@
 namespace App\DTO\Collection;
 
 use App\DTO\Report;
-use App\Helpers\CsvParseable;
+use App\Helpers\CSV\CsvParseable;
 use Iterator;
 
 class Reports extends AbstractCollection implements Iterator, CsvParseable
