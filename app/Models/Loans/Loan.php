@@ -2,32 +2,19 @@
 
 namespace App\Models\Loans;
 
-use App\Models\Client;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Loan extends Model
 {
     protected $fillable = ['type', 'client_id', 'adviser_id'];
 
-    public function client(): BelongsTo
-    {
-        return $this->belongsTo(Client::class);
-    }
-
-    public function advertiser(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
-
-    public function homeLoan(): HasOne
+    public function homeProduct(): HasOne
     {
         return $this->hasOne(HomeLoan::class);
     }
 
-    public function cashLoan(): HasOne
+    public function cashProduct(): HasOne
     {
         return $this->hasOne(CashLoan::class);
     }

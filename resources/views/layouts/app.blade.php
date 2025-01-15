@@ -29,6 +29,10 @@
 
             <!-- Page Content -->
             <main>
+                <div>
+                    <x-flash-message type="success" />
+                    <x-flash-message type="error" />
+                </div>
                 {{ $slot }}
             </main>
         </div>
