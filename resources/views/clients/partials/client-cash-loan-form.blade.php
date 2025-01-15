@@ -14,7 +14,7 @@
 
         <div>
             <x-input-label for="amount" value="Amount" />
-            <x-text-input id="amount" name="amount" type="number" step=0.01 class="mt-1 block w-full" :value="old('amount', $client?->cashLoan?->cashLoan->amount ?? '')" required autofocus />
+            <x-text-input id="amount" name="amount" type="number" step=0.01 class="mt-1 block w-full" :value="old('amount', $client?->cashLoan?->cashProduct->amount ?? '')" required autofocus />
             <x-input-error class="mt-2" :messages="$errors->get('amount')" />
         </div>
 
