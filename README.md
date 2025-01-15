@@ -8,3 +8,16 @@
 </p>
 
 ## Kredium CRM
+
+### Run Instructions
+
+To start the application and set up the database, follow these steps:
+
+```bash
+docker-compose up --build
+```
+
+Once the containers are running, seed the database:
+
+```bash
+php artisan db:seed
